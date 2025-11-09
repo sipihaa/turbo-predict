@@ -1,9 +1,13 @@
 # Данные
-/data/raw/*
-/data/processed/*
+/data/raw/**
+/data/processed/**
+
+!/data/raw/.gitkeep
+!/data/processed/.gitkeep
 
 # Модели
 /models/*
+!/models/.gitkeep
 
 # Кэш Python
 __pycache__/
