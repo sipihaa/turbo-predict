@@ -1,0 +1,4 @@
+[core]
+    remote = yandex-storage
+['remote "yandex-storage"']
+    url = s3://turbo-predict-s3/dvc-data
