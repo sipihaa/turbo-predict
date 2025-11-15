@@ -10,6 +10,7 @@ import mlflow.catboost
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import LSTM, Dense, Dropout
 import git
+from tqdm.keras import TqdmCallback
 
 # ==============================================================================
 # 1. НАСТРОЙКА MLFLOW И ПАРАМЕТРОВ ЭКСПЕРИМЕНТА
@@ -113,15 +114,15 @@ with mlflow.start_run():
     model.summary(print_fn=lambda x: summary_list.append(x))
     model_summary_string = "\n".join(summary_list)
 
-    print(model.summary())
+    model.summary()
 
     # Обучаем модель
     history = model.fit(X_train, y_train, 
                         epochs=model_params['epochs'], 
                         batch_size=model_params['batch_size'], 
                         validation_split=model_params['validation_split'], # Используем часть данных для валидации на лету
-                        callbacks=[mlflow.keras.MLflowCallback()], # Автоматическое логирование
-                        verbose=1)
+                        callbacks=[mlflow.keras.MLflowCallback(), TqdmCallback(verbose=1)], # Автоматическое логирование
+                        verbose=0)
 
     # --- Оценка модели и логирование метрик ---
     loss, mae = model.evaluate(X_test, y_test, verbose=0)
