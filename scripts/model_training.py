@@ -41,8 +41,8 @@ data_params = {
 
 # Гиперпараметры модели
 model_params = {
-    "epochs": 2,
-    "batch_size": 256,
+    "epochs": 1,
+    "batch_size": 512,
     "validation_split": 0.2,
     "optimizer": "adam",
     "loss": "mean_squared_error"
@@ -76,7 +76,8 @@ with mlflow.start_run():
         sample_array = sample_array.transpose(2, 0, 1)
         return sample_array, label_array
 
-    processed_dir = '../data/processed/'
+    project_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+    processed_dir = os.path.join(project_dir, 'data', 'processed')
 
     # Собираем пути к файлам для train и test
     train_files = [os.path.join(processed_dir, f) for f in os.listdir(processed_dir) if f.startswith(('Unit2_', 'Unit5_', 'Unit10_', 'Unit16_', 'Unit18_', 'Unit20_'))]
