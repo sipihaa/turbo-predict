@@ -2,3 +2,4 @@
     remote = yandex-storage
 ['remote "yandex-storage"']
     url = s3://turbo-predict-s3/dvc-data
+    endpointurl = https://storage.yandexcloud.net
