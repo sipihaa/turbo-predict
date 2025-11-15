@@ -122,7 +122,7 @@ def main():
     gc.collect()
     df_all = pd.DataFrame()
     project_root = os.getcwd()
-    sample_dir_path = os.path.join(project_root, 'data', 'processed', 'samples_v1')
+    sample_dir_path = os.path.join(project_root, 'data', 'processed')
     if not os.path.exists(sample_dir_path):
         os.makedirs(sample_dir_path)
         print(f"Created folder: {sample_dir_path}")
