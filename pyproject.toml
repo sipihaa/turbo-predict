@@ -8,7 +8,7 @@ authors = [
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-    "tensorflow (>=2.20.0,<3.0.0)",
+    "tensorflow-macos >=2.12" ,
     "pandas (>=2.3.3,<3.0.0)",
     "mlflow (>=3.6.0,<4.0.0)",
     "fastapi (>=0.121.1,<0.122.0)",
